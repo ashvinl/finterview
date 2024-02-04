@@ -10,5 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://demo.useliftoff.com/demo",
       lastModified: new Date(),
     },
+    {
+      url: "https://demo.useliftoff.com/login",
+      lastModified: new Date(),
+    },
   ];
 }
