@@ -7,25 +7,10 @@ import Image from 'next/image';
 export default function LoginPage() {
     return (
       <div className="flex h-screen bg-gray-100  ">
-        {/* Left side */}
-        <div className="w-1/2 text-white p-10 justify-center" style={{ backgroundColor: "#1D402F" }}>
-
-          <h1 className="text-4xl font-bold mb-4">Welcome to Finterview</h1>
-          <Image src={LogoImage} alt="Finterview Logo" /> 
-          <p className="mb-8">
-            Finterview is an AI-powered video interview platform tailored towards aspiring finance professionals.
-            Through progress tracking and instant feedback on first-rate simulated interviews, students get the
-            assistance they need to break into the high finance world.
-          </p>
-          <button className="hover:text-green-700 text-white font-bold py-2">
-            Join Now!
-          </button>
-        </div>
-  
-        {/* Right side */}
-        <div className="w-1/2 flex justify-center items-center bg-white">
+        
+        <div className="w-full flex justify-center items-center bg-white">
           <div className="w-3/5 max-w-md  my-10">
-            <h2 className="text-2xl font-bold text-left mb-6">Sign in</h2>
+            <h2 className="text-2xl font-bold text-left mb-6">Sign Up</h2>
             
               <form>
                 <div className="mb-4">
@@ -34,19 +19,24 @@ export default function LoginPage() {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="email"
                     type="text"
-                    placeholder="Enter Email or Username"
+                    placeholder="Enter Username"
                   />
                 </div>
                 <div className="mb-4 text-right">
-                  
-                  <input
+                <input
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
                     placeholder="Password"
                   />
-                  <Link className=" text-sm hover:text-blue-800" href="/forgot">
-                    Forgot Password?
+                  <input
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    id="password"
+                    type="password"
+                    placeholder="Confirm Password"
+                  />
+                  <Link className=" text-sm hover:text-blue-800" href="/login">
+                    Already have an account? Sign Up
                   </Link>
                 </div>
                 <div className="items-center justify-between">
@@ -54,7 +44,7 @@ export default function LoginPage() {
                     className="bg-custom-green hover:bg-green-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline"
                     type="button"
                   >
-                    Sign In
+                    Sign Up
                   </button>
                 </div>
                 <div className="mt-4 flex items-center justify-center mb-4 py-4">
