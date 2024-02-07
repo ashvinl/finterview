@@ -4,8 +4,6 @@ import "../styles/globals.css";
 import LogoImage from "../public/images/finterview-logo.png";
 import Image from "next/image";
 
-// pages/index.js or pages/your-page.js
-
 export default function LoginPage() {
   return (
     <div className="flex h-screen bg-gray-100  ">
