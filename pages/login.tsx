@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import "../styles/globals.css";
 import LogoImage from "../public/images/finterview-logo.png";
+
 import Image from "next/image";
 
 export default function LoginPage() {
@@ -39,7 +40,7 @@ export default function LoginPage() {
         <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
           <h3 className="text-lg font-bold text-left">Sign in</h3>
           <button className="w-28 h-10 border rounded-2xl shadow-lg">
-            Register
+            <Link href="/signup">Register</Link>
           </button>
         </div>
         <div className="flex h-full justify-center items-center">

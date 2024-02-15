@@ -7,6 +7,12 @@ import Image from 'next/image';
 export default function LoginPage() {
     return (
       <div className="flex h-screen bg-gray-100  ">
+        <div className="absolute top-8 w-4/5 flex gap-8 justify-end items-center">
+          <h3 className="text-lg font-bold text-left">Login</h3>
+          <button className="w-28 h-10 border rounded-2xl shadow-lg">
+            <Link href="/">Home</Link>
+          </button>
+        </div>
         
         <div className="w-full flex justify-center items-center bg-white">
           <div className="w-3/5 max-w-md  my-10">
@@ -19,7 +25,7 @@ export default function LoginPage() {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="email"
                     type="text"
-                    placeholder="Enter Username"
+                    placeholder="Username"
                   />
                 </div>
                 <div className="mb-4 text-right">
@@ -36,7 +42,7 @@ export default function LoginPage() {
                     placeholder="Confirm Password"
                   />
                   <Link className=" text-sm hover:text-blue-800" href="/login">
-                    Already have an account? Sign Up
+                    Already have an account? Login Here
                   </Link>
                 </div>
                 <div className="items-center justify-between">
@@ -47,10 +53,13 @@ export default function LoginPage() {
                     Sign Up
                   </button>
                 </div>
+              
                 <div className="mt-4 flex items-center justify-center mb-4 py-4">
+                <HorizontalDivider />
                   <span className="text-gray-600 mr-2">Or Continue With</span>
-        
+                  <HorizontalDivider />
                 </div>
+                
                <GoogleButton />
               </form>
             
@@ -100,3 +109,13 @@ export default function LoginPage() {
       />
     </svg>
   );
+
+
+const HorizontalDivider = () => {
+  return (
+    <div
+      className="w-1/3"
+      style={{ borderColor: "#E7E7E7", borderWidth: 0.5 }}
+    ></div>
+  );
+};
