@@ -9,38 +9,42 @@ export default function LoginPage() {
     <div className="flex h-screen bg-gray-100  ">
       {/* Left side */}
       <div
-        className="w-7/12 text-white p-24 justify-center"
+        className="w-7/12 text-white justify-center"
         style={{ backgroundColor: "#0C412E" }}
       >
-        <div className="flex justify-content items-center">
-          <div>
-            <h1 className="text-4xl font-bold mb-4" style={{ fontSize: 50 }}>
-              Welcome to
-            </h1>
-            <h1
-              className="text-4xl font-bold mb-4 mt-8"
-              style={{ fontSize: 64 }}
-            >
-              Finterview
-            </h1>
-          </div>
-          <Image src={LogoImage} alt="Finterview Logo" />
+        <Image
+          src={LogoImage}
+          alt="Finterview Logo"
+          style={{ maxWidth: 160, margin: 16 }}
+        />
+        <div className="p-24 pt-16">
+          <h1 className="text-4xl font-bold mb-16" style={{ fontSize: 74 }}>
+            Welcome to
+          </h1>
+          <h1
+            className="text-4xl font-bold mb-16 mt-8"
+            style={{ fontSize: 104 }}
+          >
+            Finterview
+          </h1>
+          <button
+            className="hover:text-green-700 text-white font-bold"
+            style={{ fontSize: 20 }}
+          >
+            Join Now!
+          </button>
         </div>
-        <button
-          className="hover:text-green-700 text-white font-bold"
-          style={{ fontSize: 20 }}
-        >
-          Join Now!
-        </button>
       </div>
 
       {/* Right side */}
       <div className="w-5/12 bg-white">
         <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
           <h3 className="text-lg font-bold text-left">Sign in</h3>
-          <button className="w-28 h-10 border rounded-2xl shadow-lg">
-            Register
-          </button>
+          <Link href="/signup">
+            <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50">
+              Register
+            </button>
+          </Link>
         </div>
         <div className="flex h-full justify-center items-center">
           <div className="w-3/5 max-w-md">
@@ -76,8 +80,11 @@ export default function LoginPage() {
               </div>
               <div className="mt-8 mb-4 flex justify-center items-center gap-2">
                 <HorizontalDivider />
-                <div className="flex items-center justify-center py-4">
-                  <span className="text-gray-600 text-center">
+                <div
+                  className="flex items-center justify-center py-4 inline-block"
+                  style={{ minWidth: 140 }}
+                >
+                  <span className="text-gray-600 text-center min-w-full">
                     Or Continue With
                   </span>
                 </div>
