@@ -39,44 +39,52 @@ export default function LoginPage() {
       {/* Right side */}
       <div className="w-5/12 bg-white">
         <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
-          <h3 className="text-lg font-bold text-left">Sign in</h3>
-          <Link href="/signup">
+          <Link href="/login">
             <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50">
-              Register
+              Sign in
             </button>
           </Link>
+          <h3 className="text-lg font-bold text-left">Register</h3>
         </div>
         <div className="flex h-full justify-center items-center">
-          <div className="w-3/5 max-w-md">
-            <h2 className="text-2xl font-bold text-left mb-8">Sign in</h2>
+          <div className="w-3/5 max-w-md ">
+            <h2 className="text-2xl font-bold text-left mb-8">Sign Up</h2>
 
             <form>
-              <div className="mb-6">
+              <div className="flex flex-col gap-6 mb-3">
                 <input
                   className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="text"
-                  placeholder="Enter Email or Username"
+                  placeholder="Enter Username"
                 />
-              </div>
-              <div className="mb-10 text-right">
                 <input
-                  className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
                   placeholder="Password"
                 />
-                <Link className=" text-sm hover:text-blue-800" href="/forgot">
-                  Forgot Password?
+                <input
+                  className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password"
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <div className="mb-10 text-right">
+                <Link className=" text-sm hover:text-blue-800" href="/login">
+                  Already have an account? Sign In
                 </Link>
               </div>
               <div className="items-center justify-between">
-                <button
-                  className="bg-custom-green hover:bg-green-700 h-12 text-white font-bold py-2 w-full rounded-lg focus:outline-none drop-shadow-md focus:shadow-outline"
-                  type="button"
-                >
-                  Sign In
-                </button>
+                <div className="items-center justify-between">
+                  <button
+                    className="bg-custom-green hover:bg-green-700 h-12 text-white font-bold py-2 w-full rounded-lg focus:outline-none drop-shadow-md focus:shadow-outline"
+                    type="button"
+                  >
+                    Sign Up
+                  </button>
+                </div>
               </div>
               <div className="mt-8 mb-4 flex justify-center items-center gap-2">
                 <HorizontalDivider />
@@ -101,7 +109,7 @@ export default function LoginPage() {
 
 const GoogleButton = () => {
   return (
-    <button className="flex w-full h-12 justify-center items-center gap-5 rounded-lg bg-white py-2 px-4 text-sm font-bold drop-shadow-md hover:bg-gray-50">
+    <button className="flex w-full justify-center gap-5 rounded bg-white py-2 px-4 text-sm font-bold drop-shadow-md hover:bg-gray-50">
       <GoogleLogo />
     </button>
   );
