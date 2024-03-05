@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import { exit } from "process";
 
 if (!process.env.MONGODB_URI) {
-    console.error("Missing env var from MongoDB");
+    exit(1);
 }
 
 mongoose.connect(process.env.MONGODB_URI);
