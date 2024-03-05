@@ -1,10 +1,45 @@
 import Link from "next/link";
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import "../styles/globals.css";
 import LogoImage from "../public/images/finterview-logo.png";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 export default function LoginPage() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleLogin = async () => {
+    try {
+      // Call the login function handler with the form data
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+
+      // Redirect or handle successful login as needed
+      router.push('/demo');
+    } catch (error) {
+      // Handle login error, show error message, etc.
+      console.error('Login error:', error);
+    }
+  };
+
   return (
     <div className="flex h-screen bg-gray-100  ">
       {/* Left side */}
@@ -57,6 +92,7 @@ export default function LoginPage() {
                   id="email"
                   type="text"
                   placeholder="Enter Email or Username"
+                  onChange={handleChange}
                 />
               </div>
               <div className="mb-10 text-right">
@@ -65,6 +101,7 @@ export default function LoginPage() {
                   id="password"
                   type="password"
                   placeholder="Password"
+                  onChange={handleChange}
                 />
                 <Link className=" text-sm hover:text-blue-800" href="/forgot">
                   Forgot Password?
@@ -74,6 +111,7 @@ export default function LoginPage() {
                 <button
                   className="bg-custom-green hover:bg-green-700 h-12 text-white font-bold py-2 w-full rounded-lg focus:outline-none drop-shadow-md focus:shadow-outline"
                   type="button"
+                  onClick={handleLogin}
                 >
                   Sign In
                 </button>
