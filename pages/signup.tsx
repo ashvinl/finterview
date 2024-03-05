@@ -1,10 +1,45 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import "../styles/globals.css";
 import LogoImage from "../public/images/finterview-logo.png";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 export default function LoginPage() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSignUp = async () => {
+    try {
+      // Call the signup function handler with the form data
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+
+      // Redirect or handle successful signup as needed
+      router.push('/demo')
+    } catch (error) {
+      // Handle login error, show error message, etc.
+      console.error('Sign up error:', error);
+    }
+  };
+
   return (
     <div className="flex h-screen bg-gray-100  ">
       {/* Left side */}
@@ -57,12 +92,14 @@ export default function LoginPage() {
                   id="email"
                   type="text"
                   placeholder="Enter Username"
+                  onChange={handleChange}
                 />
                 <input
                   className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
                   placeholder="Password"
+                  onChange={handleChange}
                 />
                 <input
                   className="shadow-lg appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -81,6 +118,7 @@ export default function LoginPage() {
                   <button
                     className="bg-custom-green hover:bg-green-700 h-12 text-white font-bold py-2 w-full rounded-lg focus:outline-none drop-shadow-md focus:shadow-outline"
                     type="button"
+                    onClick={handleSignUp}
                   >
                     Sign Up
                   </button>
