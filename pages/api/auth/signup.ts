@@ -1,7 +1,7 @@
 import User from "@/models/User";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function signUpHandler(req, res) {
+export default async function signUpHandler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {
         try {
             const { email, password } = req.body;

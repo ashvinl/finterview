@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import "../styles/globals.css";
 import LogoImage from "../public/images/finterview-logo.png";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export default function LoginPage() {
 
   const router = useRouter();
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,

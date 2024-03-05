@@ -1,7 +1,7 @@
 import User from "@/models/User";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function loginHandler(req, res) {
+export default async function loginHandler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") { // Assuming login is done through a POST request
         try {
             const { email, password } = req.body;
