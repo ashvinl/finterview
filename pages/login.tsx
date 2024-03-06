@@ -41,45 +41,61 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100  ">
+    <div className="flex h-screen bg-gray-100">
       {/* Left side */}
       <div
         className="w-7/12 text-white justify-center"
         style={{ backgroundColor: "#0C412E" }}
       >
-        <Image
-          src={LogoImage}
-          alt="Finterview Logo"
-          style={{ maxWidth: 160, margin: 16 }}
-        />
-        <div className="p-24 pt-16">
-          <h1 className="text-4xl font-bold mb-16" style={{ fontSize: 74 }}>
-            Welcome to
-          </h1>
-          <h1
-            className="text-4xl font-bold mb-16 mt-8"
-            style={{ fontSize: 104 }}
+        <div
+          className="justify-center items-center"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            height: "100%",
+            gap: 10,
+          }}
+        >
+          <Image
+            src={LogoImage}
+            alt="Finterview Logo"
+            style={{
+              maxWidth: 200,
+            }}
+          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
           >
-            Finterview
-          </h1>
-          <button
-            className="hover:text-green-700 text-white font-bold"
-            style={{ fontSize: 20 }}
-          >
-            Join Now!
-          </button>
+            <span className="font-bold" style={{ fontSize: 100 }}>
+              Finterview
+            </span>
+            <span style={{ fontSize: 32, position: "relative", top: -26 }}>
+              Empowering finance futures.
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Right side */}
       <div className="w-5/12 bg-white">
-        <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
-          <h3 className="text-lg font-bold text-left">Sign in</h3>
-          <Link href="/signup">
-            <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50">
-              Register
+        <div className="flex justify-center items-center">
+          <div className="absolute top-8 flex gap-2 justify-end items-center">
+            <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50 font-bold">
+              Sign in
             </button>
-          </Link>
+            <Link href="/signup">
+              <button className="w-28 h-10 rounded-2xl text-lg hover:text-green-800 hover:border hover:bg-gray-50">
+                Register
+              </button>
+              {/* <h3 className="text-lg text-left hover:text-green-800">
+                Register
+              </h3> */}
+            </Link>
+          </div>
         </div>
         <div className="flex h-full justify-center items-center">
           <div className="w-3/5 max-w-md">

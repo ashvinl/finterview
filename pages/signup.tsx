@@ -62,25 +62,37 @@ export default function LoginPage() {
           >
             Finterview
           </h1>
-          <button
-            className="hover:text-green-700 text-white font-bold"
-            style={{ fontSize: 20 }}
-          >
-            Join Now!
-          </button>
         </div>
       </div>
 
       {/* Right side */}
       <div className="w-5/12 bg-white">
-        <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
+        <div className="flex justify-center items-center">
+          <div className="absolute top-8 flex gap-8 justify-end items-center">
+            <Link href="/login">
+              {/* <button
+                className="w-28 h-10 border rounded-2xl text-lg hover:text-green-800"
+                style={{ border: "2px solid" }}
+              >
+                Register
+              </button> */}
+              <h3 className="text-lg text-left hover:text-green-800">
+                Sign in
+              </h3>
+            </Link>
+            <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50 font-bold">
+              Register
+            </button>
+          </div>
+        </div>
+        {/* <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
           <Link href="/login">
             <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50">
               Sign in
             </button>
           </Link>
           <h3 className="text-lg font-bold text-left">Register</h3>
-        </div>
+        </div> */}
         <div className="flex h-full justify-center items-center">
           <div className="w-3/5 max-w-md ">
             <h2 className="text-2xl font-bold text-left mb-8">Sign Up</h2>
