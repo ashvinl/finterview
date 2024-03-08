@@ -80,8 +80,8 @@ Receive immediate, expert-level insights from our highly sophisticated AI to enh
                 Community
               </h2>
               <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal">
-                Join a community of like-minded individuals, and learn from each
-                other.
+                Learn from a community of like-minded individuals and improve
+                your interview skills.
               </p>
             </div>
           </motion.div>
@@ -98,38 +98,14 @@ Receive immediate, expert-level insights from our highly sophisticated AI to enh
               }}
             >
               <Link
-                href="/login"
-                className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
+                href="https://xx8o28mmayx.typeform.com/to/navwmN9j"
+                className="group rounded-full px-4 py-2 text-[16px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                 }}
               >
-                <span > Login </span>
-               
-              </Link>
-            </motion.div>
-          </div>
-
-          <div className="flex gap-[15px] mt-8 md:mt-0 ml-20">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.65,
-              duration: 0.55,
-              ease: [0.075, 0.82, 0.965, 1],
-            }}
-          >
-            <Link
-              href="/demo"
-              className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
-              style={{
-                boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
-              }}
-            >
-              <span className="mr-2"> Try it out </span>
-              <svg
+                <span className = "mr-2"> Sign Up </span>
+                <svg
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -150,9 +126,12 @@ Receive immediate, expert-level insights from our highly sophisticated AI to enh
                   strokeLinejoin="round"
                 />
               </svg>
-            </Link>
-          </motion.div>
-        </div>
+              </Link>
+              
+            </motion.div>
+          </div>
+
+         
         </main>
 
         <div

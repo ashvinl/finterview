@@ -1,47 +1,122 @@
 import Link from "next/link";
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import "../styles/globals.css";
-import LogoImage from "../public/images/finterview-logo.png";
+import LogoImage from "../public/images/Finterview_Transparent_Logo_300x300.png";
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function LoginPage() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleLogin = async () => {
+    try {
+      // Call the login function handler with the form data
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+
+      // Redirect or handle successful login as needed
+      router.push("/demo");
+    } catch (error) {
+      // Handle login error, show error message, etc.
+      console.error("Login error:", error);
+    }
+  };
+
   return (
-    <div className="flex h-screen bg-gray-100  ">
+    <div className="flex h-screen bg-gray-100">
       {/* Left side */}
       <div
-        className="w-7/12 text-white p-24 justify-center"
+        className="w-7/12 text-white justify-center"
         style={{ backgroundColor: "#0C412E" }}
       >
-        <div className="flex justify-content items-center">
-          <div>
-            <h1 className="text-4xl font-bold mb-4" style={{ fontSize: 50 }}>
-              Welcome to
-            </h1>
-            <h1
-              className="text-4xl font-bold mb-4 mt-8"
-              style={{ fontSize: 64 }}
-            >
-              Finterview
-            </h1>
-          </div>
-          <Image src={LogoImage} alt="Finterview Logo" />
-        </div>
-        <button
-          className="hover:text-green-700 text-white font-bold"
-          style={{ fontSize: 20 }}
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          Join Now!
-        </button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <span
+              className="font-bold"
+              style={{ fontSize: 60, marginBottom: -20 }}
+            >
+              Welcome to
+            </span>
+          </div>
+          <div
+            className="justify-center items-center"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 10,
+            }}
+          >
+            <Image
+              src={LogoImage}
+              alt="Finterview Logo"
+              style={{
+                maxWidth: 120,
+                marginTop: 6,
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <span className="font-bold" style={{ fontSize: 90 }}>
+                Finterview
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Right side */}
       <div className="w-5/12 bg-white">
-        <div className="absolute top-8 w-1/3 flex gap-8 justify-end items-center">
-          <h3 className="text-lg font-bold text-left">Sign in</h3>
-          <button className="w-28 h-10 border rounded-2xl shadow-lg">
-            <Link href="/signup">Register</Link>
-          </button>
+        <div className="flex justify-center items-center">
+          <div className="absolute top-8 flex gap-4 justify-end items-center">
+            <button className="w-28 h-10 border rounded-2xl shadow-lg hover:bg-gray-50 font-bold">
+              Sign in
+            </button>
+            <Link href="/signup">
+              <button className="w-28 h-10 rounded-2xl text-lg hover:text-green-800 hover:border hover:bg-gray-50">
+                Register
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="flex h-full justify-center items-center">
           <div className="w-3/5 max-w-md">
@@ -54,6 +129,7 @@ export default function LoginPage() {
                   id="email"
                   type="text"
                   placeholder="Enter Email or Username"
+                  onChange={handleChange}
                 />
               </div>
               <div className="mb-10 text-right">
@@ -62,6 +138,7 @@ export default function LoginPage() {
                   id="password"
                   type="password"
                   placeholder="Password"
+                  onChange={handleChange}
                 />
                 <Link className=" text-sm hover:text-blue-800" href="/forgot">
                   Forgot Password?
@@ -71,14 +148,18 @@ export default function LoginPage() {
                 <button
                   className="bg-custom-green hover:bg-green-700 h-12 text-white font-bold py-2 w-full rounded-lg focus:outline-none drop-shadow-md focus:shadow-outline"
                   type="button"
+                  onClick={handleLogin}
                 >
                   Sign In
                 </button>
               </div>
               <div className="mt-8 mb-4 flex justify-center items-center gap-2">
                 <HorizontalDivider />
-                <div className="flex items-center justify-center py-4">
-                  <span className="text-gray-600 text-center">
+                <div
+                  className="flex items-center justify-center py-4 inline-block"
+                  style={{ minWidth: 140 }}
+                >
+                  <span className="text-gray-600 text-center min-w-full">
                     Or Continue With
                   </span>
                 </div>
