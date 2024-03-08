@@ -4,11 +4,18 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
 import { useEffect } from "react";
+import posthog from 'posthog-js';
+
+
 
 export default function Home() {
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
   }, []);
+
+
+  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, { api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST })
+
 
   return (
     <AnimatePresence>
@@ -88,7 +95,7 @@ Receive immediate, expert-level insights from our highly sophisticated AI to enh
 
           <div className="flex gap-[15px] mt-8 md:mt-0">
           
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -96,39 +103,46 @@ Receive immediate, expert-level insights from our highly sophisticated AI to enh
                 duration: 0.55,
                 ease: [0.075, 0.82, 0.965, 1],
               }}
-            >
-              <Link
+            > */}
+              <a
                 href="https://xx8o28mmayx.typeform.com/to/navwmN9j"
                 className="group rounded-full px-4 py-2 text-[16px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                 }}
+                onClick={(e) => {
+                  e.preventDefault(); 
+                  posthog.capture('user_click_waitlist');
+                  console.log('clicked');
+                  window.location.href = 'https://xx8o28mmayx.typeform.com/to/navwmN9j';
+                }}
               >
-                <span className = "mr-2"> Sign Up </span>
+                <span className="mr-2">Sign Up</span>
                 <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.75 6.75L19.25 12L13.75 17.25"
-                  stroke="#1E2B3A"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M19 12H4.75"
-                  stroke="#1E2B3A"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              </Link>
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.75 6.75L19.25 12L13.75 17.25"
+                    stroke="#1E2B3A"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M19 12H4.75"
+                    stroke="#1E2B3A"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+
               
-            </motion.div>
+            {/* </motion.div> */}
           </div>
 
          
