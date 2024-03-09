@@ -32,7 +32,7 @@ export default function Home() {
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                   >
                     <path
                       stroke-linecap="round"
@@ -50,7 +50,7 @@ export default function Home() {
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                   >
                     <path
                       stroke-linecap="round"
@@ -63,9 +63,12 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
       </div>
-      <h1>Welcome back, First Name</h1>
-      <h1>Past Interviews</h1>
+     <div>
+     <h1 className="text-2xl font-semibold text-gray-800">Welcome back, First Name</h1>
+     <h1 className="text-2xl font-semibold text-gray-800">Past Interviews</h1>
+     </div>
       <Card children={"test"} />
     </div>
   );
